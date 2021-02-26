@@ -1,3 +1,5 @@
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Gnu-bash-logo.svg/304px-Gnu-bash-logo.svg.png)
+
 ## 目录
 
 - [文件与目录](#文件与目录)
@@ -24,8 +26,6 @@
 ### 3.`ls`
 
 列出目录及文件名
-
-
 
 <br/>
 
