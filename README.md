@@ -1,4 +1,6 @@
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Gnu-bash-logo.svg/304px-Gnu-bash-logo.svg.png)
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" alt="bash logo"/>
+</p>
 
 ## contents
 
@@ -8,9 +10,21 @@
 
 ## 文件与目录
 
-[pwd](#1.)、 [cd](#2.)、[ls](#3.)、[mkdir](#4.)、[rmdir](#5.)、[cp](#6.)、[rm](#7.)、[mv](#8.)
+<table>
+   <tr>
+      <td><a href="#1.pwd">pwd</a></td>
+      <td><a href="#2.cd">cd</a></td>
+      <td><a href="#3.ls">ls</a></td>
+      <td><a href="#4.mkdir">mkdir</a></td>
+      <td><a href="#5.rmdir">rmdir</a></td>
+      <td><a href="#6.cp">cp</a></td>
+      <td><a href="#7.rm">rm</a></td>
+      <td><a href="#8.mv">mv</a></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
 
-<br/>
 
 ### 1.`pwd`
 
@@ -56,6 +70,21 @@
 <br/>
 
 ## 文本处理
+
+<table>
+   <tr>
+      <td><a href="#1.cat">cat</a></td>
+      <td><a href="#2.tac">tac</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
 
 ### 1、`cat`
 
