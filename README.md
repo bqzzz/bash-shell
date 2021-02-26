@@ -12,14 +12,14 @@
 
 <table>
    <tr>
-      <td><a href="#1.pwd">pwd</a></td>
-      <td><a href="#2.cd">cd</a></td>
-      <td><a href="#3.ls">ls</a></td>
-      <td><a href="#4.mkdir">mkdir</a></td>
-      <td><a href="#5.rmdir">rmdir</a></td>
-      <td><a href="#6.cp">cp</a></td>
-      <td><a href="#7.rm">rm</a></td>
-      <td><a href="#8.mv">mv</a></td>
+      <td><a href="#1pwd">pwd</a></td>
+      <td><a href="#2cd">cd</a></td>
+      <td><a href="#3ls">ls</a></td>
+      <td><a href="#4mkdir">mkdir</a></td>
+      <td><a href="#5rmdir">rmdir</a></td>
+      <td><a href="#6cp">cp</a></td>
+      <td><a href="#7rm">rm</a></td>
+      <td><a href="#8mv">mv</a></td>
       <td></td>
       <td></td>
    </tr>
@@ -73,8 +73,8 @@
 
 <table>
    <tr>
-      <td><a href="#1.cat">cat</a></td>
-      <td><a href="#2.tac">tac</a></td>
+      <td><a href="#1cat">cat</a></td>
+      <td><a href="#2tac">tac</a></td>
       <td></td>
       <td></td>
       <td></td>
