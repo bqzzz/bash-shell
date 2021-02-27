@@ -24,7 +24,7 @@
       <td><a href="#10mv">mv</a></td>
    </tr>
    <tr>
-      <td><a href="#11重定向>">></a></td>
+      <td><a href="#11>">></a></td>
       <td></td>
       <td></td>
       <td></td>
@@ -178,7 +178,7 @@ $ echo hello > hello.txt
       <td><a href="#3more">more</a></td>
       <td><a href="#4grep">grep</a></td>
       <td><a href="#5echo">echo</a></td>
-      <td><a href="#6管道|">|</a></td>
+      <td><a href="#6|">|</a></td>
       <td></td>
       <td></td>
       <td></td>
