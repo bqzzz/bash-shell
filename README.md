@@ -6,6 +6,8 @@
 
 - [文件管理](#文件管理)
 - [文本处理](#文本处理)
+- [网络管理](#网络管理)
+- [远程操作](#远程操作)
 <br/>
 
 ## 文件管理
@@ -75,6 +77,7 @@ $ cd -	#可以在最近两次工作目录之间来回切换
 ```bash
 ls *1.txt #列出以.txt结尾的文件
 ```
+<br/>
 
 ### 4.`touch`
 
@@ -130,6 +133,8 @@ myprojects  sub1  sub2  sub3  sub4  test
 $ tree  				#显示当前目录结构树
 $ tree ./Desktop/myprj	#显示指定目录结构树
 ```
+
+<br/>
 
 ### 9.`cp`
 
@@ -187,7 +192,7 @@ $ echo hello > hello.txt
 </table>
 
 
-### 1、`cat`
+### 1.`cat`
 
 由第一行开始显示文件内容，cat 会一次显示所有的内容，适合查看**内容较少**的文本文件
 
@@ -196,7 +201,7 @@ $ echo hello > hello.txt
 
 <br/>
 
-### 2、`tac`
+### 2.`tac`
 
 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！
 
@@ -250,4 +255,115 @@ $ ls -al | more				# 把所有文件详情列表分屏显示
 $ ls -al | grep hello.py	# 在文件详情列表中搜索hello.py文件
 ```
 
+
+## 网络管理
+<table>
+   <tr>
+      <td><a href="#1ifconfig">ifconfig</a></td>
+      <td><a href="#2ping">ping</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+
+### 1.`ifconfig`
+查看/配置计算机当前的网卡配置信息
 <br/>
+
+### 2.`ping`
+检测到目标 ip地址 的连接是否正常
+<br/>
+
+## 远程操作
+<table>
+   <tr>
+      <td><a href="#1ssh">ssh</a></td>
+      <td><a href="#2scp">scp</a></td>
+      <td><a href="#3shutdown">shutdown</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+
+### 1.`ssh`
+远程登录：`ssh [-p port] user@remote`（SSH默认端口为22）
+
+退出登录：`exit`
+
+免密登录：
+
+1. `ssh-keygen` 在`~/.ssh`目录下生成 SSH 钥匙
+
+
+2. `ssh-copy-id -p port user@remote` 可以让远程服务器记住我们的公钥
+
+
+3. 配置别名（可选）：在 `~/.ssh/config` 里面追加以下内容：
+```
+Host mac
+    HostName ip地址
+    User itheima
+    Port 22
+```
+> 保存之后，即可用 ssh mac 实现远程登录了，scp 同样可以使用
+
+<br/>
+
+### 2.`scp`
+远程拷贝文件：拷贝本地文件到一个远程主机、拷贝一个远程主机文件到本地、拷贝一台远程主机的文件到另一台远程主机。
+- **-r** 若给出的源文件是目录文件，则 scp 将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名
+- **-P** 若远程 SSH 服务器的端口不是 22，需要使用大写字母 -P 选项指定端口
+示例：
+```bazaar
+# 把本地当前目录下的 01.py 文件 复制到 远程 家目录下的 Desktop/01.py
+# 注意：`:` 后面的路径如果不是绝对路径，则以用户的家目录作为参照路径
+scp -P port 01.py user@remote:Desktop/01.py
+
+# 把远程 家目录下的 Desktop/01.py 文件 复制到 本地当前目录下的 01.py
+scp -P port user@remote:Desktop/01.py 01.py
+
+# 加上 -r 选项可以传送文件夹
+# 把当前目录下的 demo 文件夹 复制到 远程 家目录下的 Desktop
+scp -r demo user@remote:Desktop
+
+# 把远程 家目录下的 Desktop 复制到 当前目录下的 demo 文件夹
+scp -r user@remote:Desktop demo
+```  
+
+<br/>
+
+### 3.`shutdown`
+安全关闭 或者 重新启动系统
+
+- `-r`	重新启动
+  
+- 默认表示1分钟之后关闭电脑，可指定关闭时间
+
+示例：
+```bazaar
+# 重新启动操作系统，其中 now 表示现在
+$ shutdown -r now
+
+# 立刻关机，其中 now 表示现在
+$ shutdown now
+
+# 系统在今天的 20:25 会关机
+$ shutdown 20:25
+
+# 系统再过十分钟后自动关机
+$ shutdown +10
+
+# 取消之前指定的关机计划
+$ shutdown -c
+```
