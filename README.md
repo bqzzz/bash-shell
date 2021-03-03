@@ -475,7 +475,7 @@ yum（ Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 SUSE
 
 apt（Advanced Packaging Tool）是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器。
 
-####常用命令
+#### 常用命令
 
 - 列出所有可更新的软件清单命令：sudo apt update
 
