@@ -8,6 +8,8 @@
 - [文本处理](#文本处理)
 - [网络管理](#网络管理)
 - [远程操作](#远程操作)
+- [系统信息](#系统信息)
+- [包管理工具](#包管理工具)
 <br/>
 
 ## 文件管理
@@ -181,11 +183,11 @@ $ echo hello > hello.txt
       <td><a href="#1cat">cat</a></td>
       <td><a href="#2tac">tac</a></td>
       <td><a href="#3more">more</a></td>
-      <td><a href="#4grep">grep</a></td>
-      <td><a href="#5echo">echo</a></td>
-      <td><a href="#6|">|</a></td>
-      <td></td>
-      <td></td>
+      <td><a href="#4head">head</a></td>
+      <td><a href="#5tail">tail</a></td>
+      <td><a href="#6grep">grep</a></td>
+      <td><a href="#7echo">echo</a></td>
+      <td><a href="#8|">|</a></td>
       <td></td>
       <td></td>
    </tr>
@@ -222,7 +224,13 @@ $ echo hello > hello.txt
 
 <br/>
 
-### 4.`grep`
+### 4.`head`
+只看头几行
+
+### 5.`tail`
+只看尾巴几行
+
+### 6.`grep`
 
 用于过滤/搜索的**关键字**，可使用**正则表达式**搜索文本，并把匹配的行打印出来。
 
@@ -238,13 +246,12 @@ $ grep -n '()$' fake.py			# 搜索以()结尾的行
 
 <br/>
 
-### 5.`echo`
+### 7.`echo`
 
 在终端中显示参数指定的文字，类似print函数
 
-<br/>
 
-### 6.`|`
+### 8.`|`
 
 将 **一个命令的输出** 可以**通过管道** 做为 **另一个命令的输入**
 
@@ -367,3 +374,133 @@ $ shutdown +10
 # 取消之前指定的关机计划
 $ shutdown -c
 ```
+
+<br/>
+
+## 系统信息
+<table>
+   <tr>
+      <td><a href="#1date">date</a></td>
+      <td><a href="#2cal">cal</a></td>
+      <td><a href="#3df">df</a></td>
+      <td><a href="#4du">du</a></td>
+      <td><a href="#5ps">ps</a></td>
+      <td><a href="#6top">top</a></td>
+      <td><a href="#7kill">kill</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+
+<br/>
+
+### 1.`date`
+查看系统时间
+
+### 2.`cal`
+calendar 查看日历
+- `-y` 选项可以查看一年的日历
+
+
+### 3.`df`
+disk free 显示磁盘剩余空间
+```
+df [-ahikHTm] [目录或文件名]
+```
+- `-a` ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；
+- `-k` ：以 KBytes 的容量显示各文件系统；
+- `-m` ：以 MBytes 的容量显示各文件系统；
+- `-h` ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；
+- `-H` ：以 M=1000K 取代 M=1024K 的进位方式；
+- `-T` ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；
+- `-i` ：不用硬盘容量，而以 inode 的数量来显示
+
+### 4.`du`
+```
+du [-ahskm] 文件或目录名称
+```
+- `-a` ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。
+- `-h` ：以人们较易读的容量格式 (G/M) 显示；
+- `-s` ：列出总量而已，而不列出每个各别的目录占用容量；
+- `-S` ：不包括子目录下的总计，与 -s 有点差别。
+- `-k` ：以 KBytes 列出容量显示；
+- `-m` ：以 MBytes 列出容量显示；
+
+### 5.`ps`
+process status 查看进程的详细状况
+- `-a`：显示终端上的所有进程，包括其他用户的进程
+- `-u`：显示进程的详细状态
+- `-x`：显示没有控制终端的进程
+
+### 6.`top`
+动态显示运行中的进程并且排序
+> 输入 q 退出 top
+
+### 7.`kill`
+
+`kill [-9] 进程代号`：终止指定代号的进程-9 表示强行终止
+
+<br/>
+
+## 包管理工具
+
+### 1.`yum`
+yum（ Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 SUSE 中的 Shell 前端软件包管理器。
+
+#### 常用命令
+- 列出所有可更新的软件清单命令：yum check-update
+
+- 更新所有软件命令：yum update
+
+- 仅安装指定的软件命令：yum install <package_name>
+
+- 仅更新指定的软件命令：yum update <package_name>
+
+- 列出所有可安装的软件清单命令：yum list [正则表达式]
+
+- 删除软件包命令：yum remove <package_name>
+
+- 查找软件包命令：yum search <keyword>
+
+- 清除缓存命令:
+
+    + yum clean packages: 清除缓存目录下的软件包
+    + yum clean headers: 清除缓存目录下的 headers
+    + yum clean oldheaders: 清除缓存目录下旧的 headers
+    + yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓存目录下的软件包及旧的 headers
+
+
+### 2.`apt`
+
+apt（Advanced Packaging Tool）是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器。
+
+####常用命令
+
+- 列出所有可更新的软件清单命令：sudo apt update
+
+- 升级软件包：sudo apt upgrade
+
+- 列出可更新的软件包及版本信息：apt list --upgradeable
+
+- 升级软件包，升级前先删除需要更新软件包：sudo apt full-upgrade
+
+- 安装指定的软件命令：sudo apt install <package_name>
+
+- 安装多个软件包：sudo apt install <package_1> <package_2> <package_3>
+
+- 更新指定的软件命令：sudo apt update <package_name>
+
+- 显示软件包具体信息,例如：版本号，安装大小，依赖关系等等：sudo apt show <package_name>
+
+- 删除软件包命令：sudo apt remove <package_name>
+
+- 清理不再使用的依赖和库文件: sudo apt autoremove
+
+- 移除软件包及配置文件: sudo apt purge <package_name>
+
+- 查找软件包命令： sudo apt search <keyword>
+
+- 列出所有已安装的包：apt list --installed
+
+- 列出所有已安装的包的版本信息：apt list --all-versions
