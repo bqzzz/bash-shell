@@ -2,6 +2,7 @@
   <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" width="200px" height="200px" alt="bash logo"/>
 </p>
 
+
 ## Contents
 
 - [文件管理](#文件管理)
@@ -10,7 +11,7 @@
 - [远程操作](#远程操作)
 - [系统信息](#系统信息)
 - [包管理工具](#包管理工具)
-<br/>
+    <br/>
 
 ## 文件管理
 
@@ -40,6 +41,7 @@
       <td></td>
    </tr>
 </table>
+
 
 
 
@@ -79,6 +81,7 @@ $ cd -	#可以在最近两次工作目录之间来回切换
 ```bash
 ls *1.txt #列出以.txt结尾的文件
 ```
+
 <br/>
 
 ### 4.`touch`
@@ -159,6 +162,8 @@ $ cp -r  myprojects test
 
 - **-i** 覆盖文件前提示
 
+
+
 ### 11.`>`
 
 将本应显示在**终端上的内容** **输出／追加** 到**指定文件中**
@@ -194,6 +199,7 @@ $ echo hello > hello.txt
 </table>
 
 
+
 ### 1.`cat`
 
 由第一行开始显示文件内容，cat 会一次显示所有的内容，适合查看**内容较少**的文本文件
@@ -225,10 +231,16 @@ $ echo hello > hello.txt
 <br/>
 
 ### 4.`head`
+
 只看头几行
 
+
+
 ### 5.`tail`
+
 只看尾巴几行
+
+
 
 ### 6.`grep`
 
@@ -236,7 +248,7 @@ $ echo hello > hello.txt
 
 - **-n** ：显示匹配行及行号
 - **-v** ：显示不包含匹配文本的所有行（相当于求反
--  **-i** ：忽略大小写
+- **-i** ：忽略大小写
 
 ```bash
 $ grep -n 'time' test.py		# 搜索time关键字所在的行（关键字带空格或括号时，必须加引号）
@@ -251,6 +263,8 @@ $ grep -n '()$' fake.py			# 搜索以()结尾的行
 在终端中显示参数指定的文字，类似print函数
 
 
+
+
 ### 8.`|`
 
 将 **一个命令的输出** 可以**通过管道** 做为 **另一个命令的输入**
@@ -263,7 +277,9 @@ $ ls -al | grep hello.py	# 在文件详情列表中搜索hello.py文件
 ```
 
 
+
 ## 网络管理
+
 <table>
    <tr>
       <td><a href="#1ifconfig">ifconfig</a></td>
@@ -279,15 +295,19 @@ $ ls -al | grep hello.py	# 在文件详情列表中搜索hello.py文件
    </tr>
 </table>
 
+
 ### 1.`ifconfig`
+
 查看/配置计算机当前的网卡配置信息
 <br/>
 
 ### 2.`ping`
+
 检测到目标 ip地址 的连接是否正常
 <br/>
 
 ## 远程操作
+
 <table>
    <tr>
       <td><a href="#1ssh">ssh</a></td>
@@ -303,7 +323,9 @@ $ ls -al | grep hello.py	# 在文件详情列表中搜索hello.py文件
    </tr>
 </table>
 
+
 ### 1.`ssh`
+
 远程登录：`ssh [-p port] user@remote`（SSH默认端口为22）
 
 退出登录：`exit`
@@ -317,22 +339,27 @@ $ ls -al | grep hello.py	# 在文件详情列表中搜索hello.py文件
 
 
 3. 配置别名（可选）：在 `~/.ssh/config` 里面追加以下内容：
+
 ```
 Host mac
     HostName ip地址
     User itheima
     Port 22
 ```
+
 > 保存之后，即可用 ssh mac 实现远程登录了，scp 同样可以使用
 
 <br/>
 
 ### 2.`scp`
+
 远程拷贝文件：拷贝本地文件到一个远程主机、拷贝一个远程主机文件到本地、拷贝一台远程主机的文件到另一台远程主机。
+
 - **-r** 若给出的源文件是目录文件，则 scp 将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名
 - **-P** 若远程 SSH 服务器的端口不是 22，需要使用大写字母 -P 选项指定端口
-示例：
-```bazaar
+    示例：
+
+```bash
 # 把本地当前目录下的 01.py 文件 复制到 远程 家目录下的 Desktop/01.py
 # 注意：`:` 后面的路径如果不是绝对路径，则以用户的家目录作为参照路径
 scp -P port 01.py user@remote:Desktop/01.py
@@ -346,18 +373,20 @@ scp -r demo user@remote:Desktop
 
 # 把远程 家目录下的 Desktop 复制到 当前目录下的 demo 文件夹
 scp -r user@remote:Desktop demo
-```  
+```
 
 <br/>
 
 ### 3.`shutdown`
+
 安全关闭 或者 重新启动系统
 
-- `-r`	重新启动
-  
+- `-r`:重新启动
+
 - 默认表示1分钟之后关闭电脑，可指定关闭时间
 
 示例：
+
 ```bazaar
 # 重新启动操作系统，其中 now 表示现在
 $ shutdown -r now
@@ -378,6 +407,7 @@ $ shutdown -c
 <br/>
 
 ## 系统信息
+
 <table>
    <tr>
       <td><a href="#1date">date</a></td>
@@ -393,21 +423,28 @@ $ shutdown -c
    </tr>
 </table>
 
+
 <br/>
 
 ### 1.`date`
+
 查看系统时间
 
 ### 2.`cal`
+
 calendar 查看日历
+
 - `-y` 选项可以查看一年的日历
 
 
 ### 3.`df`
-disk free 显示磁盘剩余空间
+
+disk free 检查文件系统的磁盘空间占用情况。可以利用该命令来获取**硬盘**被占用了多少空间，目前还剩下多少空间等信息
+
 ```
 df [-ahikHTm] [目录或文件名]
 ```
+
 - `-a` ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；
 - `-k` ：以 KBytes 的容量显示各文件系统；
 - `-m` ：以 MBytes 的容量显示各文件系统；
@@ -417,9 +454,13 @@ df [-ahikHTm] [目录或文件名]
 - `-i` ：不用硬盘容量，而以 inode 的数量来显示
 
 ### 4.`du`
+
+du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对**文件和目录**使用的空间的查看
+
 ```
 du [-ahskm] 文件或目录名称
 ```
+
 - `-a` ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。
 - `-h` ：以人们较易读的容量格式 (G/M) 显示；
 - `-s` ：列出总量而已，而不列出每个各别的目录占用容量；
@@ -428,13 +469,17 @@ du [-ahskm] 文件或目录名称
 - `-m` ：以 MBytes 列出容量显示；
 
 ### 5.`ps`
+
 process status 查看进程的详细状况
+
 - `-a`：显示终端上的所有进程，包括其他用户的进程
 - `-u`：显示进程的详细状态
 - `-x`：显示没有控制终端的进程
 
 ### 6.`top`
+
 动态显示运行中的进程并且排序
+
 > 输入 q 退出 top
 
 ### 7.`kill`
@@ -446,14 +491,16 @@ process status 查看进程的详细状况
 ## 包管理工具
 
 ### 1.`yum`
-yum（ Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 SUSE 中的 Shell 前端软件包管理器。
+
+yum是一个在 Fedora 和 RedHat 以及 SUSE 中的 Shell 前端软件包管理器。
 
 #### 常用命令
+
 - 列出所有可更新的软件清单命令：yum check-update
 
 - 更新所有软件命令：yum update
 
-- 仅安装指定的软件命令：yum install <package_name>
+- 仅安装指定的软件命令：**yum install <package_name>**
 
 - 仅更新指定的软件命令：yum update <package_name>
 
@@ -473,7 +520,7 @@ yum（ Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 SUSE
 
 ### 2.`apt`
 
-apt（Advanced Packaging Tool）是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器。
+apt是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器。
 
 #### 常用命令
 
@@ -485,7 +532,7 @@ apt（Advanced Packaging Tool）是一个在 Debian 和 Ubuntu 中的 Shell 前�
 
 - 升级软件包，升级前先删除需要更新软件包：sudo apt full-upgrade
 
-- 安装指定的软件命令：sudo apt install <package_name>
+- 安装指定的软件命令：**sudo apt install <package_name>**
 
 - 安装多个软件包：sudo apt install <package_1> <package_2> <package_3>
 
